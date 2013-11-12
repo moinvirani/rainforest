@@ -5,8 +5,12 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
+
 <body>
+	 <%= render 'layouts/header' %>
+
 	<% if flash[:notice] %>
 		<p id="notice"><%= flash[:notice] %></p>
 	<% end %>
@@ -23,5 +27,6 @@
 		<%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
 		<% end %>
 	</p>
+	<%= render 'layouts/footer' %>
 </body>
 </html>

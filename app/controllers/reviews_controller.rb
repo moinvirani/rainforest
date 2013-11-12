@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 	
+	before_filter :ensure_logged_in, :only => [:show]
 	before_filter :load_product
   
   def show
@@ -14,7 +15,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-  	@review = @product.reviews.build(review_params)
+  	@review = @product.reviews.build(review_params)		
   	@review.user_id = current_user.id
 
   	if @review.save
